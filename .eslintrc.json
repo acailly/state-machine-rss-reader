@@ -1,0 +1,76 @@
+{
+  "ignorePatterns": [
+    "nobuild/*"
+  ],
+  "settings": {
+    "react": { "version": "detect" },
+    "import/resolver": {
+      "eslint-import-resolver-custom-alias": {
+        "alias": {
+          "@": "./src"
+        },
+        "extensions": [".js", ".ts", ".jsx", ".tsx"]
+      }
+    }
+  },
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:react-hooks/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "plugins": ["react", "@typescript-eslint", "formatjs"],
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "import/named": "error",
+    "import/order": [
+      "error",
+      {
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": false
+        },
+        "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+        "newlines-between": "always",
+        "pathGroups": [
+          {
+            "pattern": "@/**",
+            "group": "internal"
+          }
+        ],
+        "warnOnUnassignedImports": true
+      }
+    ],
+    "@typescript-eslint/no-loss-of-precision": "off",
+    "formatjs/enforce-description": ["off", "literal"],
+    "formatjs/enforce-default-message": ["error", "literal"],
+    "formatjs/enforce-placeholders": [
+      "error",
+      {
+        "ignoreList": []
+      }
+    ],
+    "formatjs/no-multiple-whitespaces": ["error"],
+    "formatjs/no-complex-selectors": [
+      "error",
+      {
+        "limit": 3
+      }
+    ]
+  }
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dayco</title>
+    <meta name="description" content="Dayco" />
+    <!-- Generated with https://realfavicongenerator.net/ -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#4cafcb" />
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // To avoid "failed to execute 'fetch' on 'Window' illegal invocation" error
+      // From https://stackoverflow.com/questions/69876859/why-does-bind-fix-failed-to-execute-fetch-on-window-illegal-invocation-err
+      window.fetch = window.fetch.bind(window)
+    </script>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
