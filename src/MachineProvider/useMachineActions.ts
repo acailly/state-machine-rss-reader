@@ -8,11 +8,12 @@ import baseUrl from '../services/baseUrl'
 import useAbsoluteNavigate from './useAbsoluteNavigate'
 import useCreateTelechargerUnAbonnementMachine from './useCreateTelechargerUnAbonnementMachine'
 
+// FIXME découper par machine pour montrer la scalabilité ?
 const useMachineActions = () => {
   const navigate = useAbsoluteNavigate()
   const toast = useToast()
   const { createTelechargerUnAbonnementMachine } = useCreateTelechargerUnAbonnementMachine()
-
+  
   const actions: Actions = useMemo(() => {
     return {
       afficherPageNouveautes: () => {

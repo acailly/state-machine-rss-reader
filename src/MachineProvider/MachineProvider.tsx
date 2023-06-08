@@ -10,11 +10,9 @@ import sauvegarde from '../sauvegarde/sauvegarde.machine'
 import debugStateMachine from '../stateMachineTools/debugStateMachine'
 import telecharger from '../telecharger/telecharger.machine'
 
-import initializeFromUrl from './initializeFromUrl'
 import useMachineActions from './useMachineActions'
+import useMachineGuards from './useMachineGuards'
 import useMachineServices from './useMachineServices'
-
-const currentLocation = window.location.pathname
 
 interface MachineContextContextInterface {
   interpretedStateMachine: InterpreterFrom<typeof appMachine>
@@ -25,17 +23,18 @@ export const MachineContext = createContext<MachineContextContextInterface>({} a
 export const MachineProvider = (props: PropsWithChildren) => {
   const actions = useMachineActions()
   const services = useMachineServices()
+  const guards = useMachineGuards()
 
   // FIXME quand les nested states seront collapsibles, remplacer les sous machines invoquées
   // par des nested states ?
   const subMachines: Record<SubMachineName, AnyStateMachine> = useMemo(() => {
     return {
-      abonnements: abonnements.withConfig({ actions, services }),
-      nouveautes: nouveautes.withConfig({ actions, services }),
-      telecharger: telecharger.withConfig({ actions, services }),
-      sauvegarde: sauvegarde.withConfig({ actions, services }),
+      abonnements: abonnements.withConfig({ actions, services, guards }),
+      nouveautes: nouveautes.withConfig({ actions, services, guards }),
+      telecharger: telecharger.withConfig({ actions, services, guards }),
+      sauvegarde: sauvegarde.withConfig({ actions, services, guards }),
     }
-  }, [actions, services])
+  }, [actions, services, guards])
 
   const servicesAndSubMachines = useMemo(() => {
     return {
@@ -48,8 +47,9 @@ export const MachineProvider = (props: PropsWithChildren) => {
     return appMachine.withConfig({
       actions,
       services: servicesAndSubMachines,
+      guards,
     })
-  }, [actions, servicesAndSubMachines])
+  }, [actions, guards, servicesAndSubMachines])
 
   const interpretedStateMachine = useInterpret(fullAppMachine, { devTools: true })
 
@@ -57,9 +57,10 @@ export const MachineProvider = (props: PropsWithChildren) => {
     debugStateMachine(interpretedStateMachine)
   }, [interpretedStateMachine])
 
-  useEffect(() => {
-    initializeFromUrl(currentLocation, interpretedStateMachine)
-  }, [interpretedStateMachine])
+  // INFO : ce code servait anciennement à initialiser l'état initial à partir de l'URL
+  // useEffect(() => {
+  //   initializeFromUrl(currentLocation, interpretedStateMachine)
+  // }, [interpretedStateMachine])
 
   return <MachineContext.Provider value={{ interpretedStateMachine }}>{props.children}</MachineContext.Provider>
 }

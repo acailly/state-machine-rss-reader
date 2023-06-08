@@ -114,6 +114,7 @@ const fakeMachine = createMachine<Context, Event, Typestate>({})
 export type Options = typeof fakeMachine.options
 export type Actions = Options['actions']
 export type Services = Options['services']
+export type Guards = Options['guards']
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export type Machine = StateMachine<Context, any, Event, Typestate>
