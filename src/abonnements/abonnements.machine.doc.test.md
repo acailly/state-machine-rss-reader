@@ -5,7 +5,7 @@
 ```mermaid
 stateDiagram-v2  
 %% abonnements  
-	[*] --> Liste_des_abonnements  
+	[*] --> Initialisation  
 	Liste_des_abonnements: Liste des abonnements  
 	Choix_du_nouvel_abonnement: Choix du nouvel abonnement  
 	Nouvel_abonnement_RSS: Nouvel abonnement RSS  
@@ -13,6 +13,7 @@ stateDiagram-v2
 	Suppression_d'un_abonnement: Suppression d'un abonnement  
 	Création_d'un_abonnement_RSS: Création d'un abonnement RSS  
 	Création_d'un_abonnement_Twitter: Création d'un abonnement Twitter  
+	Initialisation: Initialisation  
 	Liste_des_abonnements --> Suppression_d'un_abonnement: Supprimer un abonnement  
 	Liste_des_abonnements --> Choix_du_nouvel_abonnement: Ajouter un abonnement  
 	Choix_du_nouvel_abonnement --> Nouvel_abonnement_RSS: Abonnement RSS  
@@ -27,10 +28,14 @@ stateDiagram-v2
 	Création_d'un_abonnement_RSS --> Nouvel_abonnement_RSS: Erreur  
 	Création_d'un_abonnement_Twitter --> Nouvel_abonnement_Twitter: OK  
 	Création_d'un_abonnement_Twitter --> Nouvel_abonnement_Twitter: Erreur  
+	Initialisation --> Nouvel_abonnement_RSS:   
+	Initialisation --> Nouvel_abonnement_Twitter:   
+	Initialisation --> Choix_du_nouvel_abonnement:   
+	Initialisation --> Liste_des_abonnements:   
 
 ```
 
-Aller à l'état initial : [Liste des abonnements](#Liste_des_abonnements)  
+Aller à l'état initial : [Initialisation](#Initialisation)  
 ## <a id="Liste_des_abonnements"></a>Liste des abonnements
 
 Test description
@@ -75,3 +80,11 @@ Test description
 
 - OK [Nouvel abonnement Twitter](#Nouvel_abonnement_Twitter)  
 - Erreur [Nouvel abonnement Twitter](#Nouvel_abonnement_Twitter)  
+## <a id="Initialisation"></a>Initialisation
+
+### Actions
+
+-  [Nouvel abonnement RSS](#Nouvel_abonnement_RSS)  
+-  [Nouvel abonnement Twitter](#Nouvel_abonnement_Twitter)  
+-  [Choix du nouvel abonnement](#Choix_du_nouvel_abonnement)  
+-  [Liste des abonnements](#Liste_des_abonnements)  

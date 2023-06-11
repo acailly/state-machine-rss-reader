@@ -1,8 +1,8 @@
 import { Button } from '@chakra-ui/react'
 
+import downloadJson from './allMachines/downloadJson'
+import loadFeeds from './allMachines/loadFeeds'
 import { db } from './db'
-import downloadJson from './services/downloadJson'
-import loadFeeds from './services/loadFeeds'
 
 const loadFakeData = async () => {
   const feeds = await db.feeds.toArray()

@@ -1,7 +1,7 @@
 import isAfter from 'date-fns/isAfter'
 
-import { db } from '../db'
-import { NewsItem } from '../types'
+import { db } from '../../db'
+import { NewsItem } from '../../types'
 
 const addNewsItem = async (newsItemToAdd: NewsItem) => {
   if (!newsItemToAdd.url || !newsItemToAdd.feedKey) {

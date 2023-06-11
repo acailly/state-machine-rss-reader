@@ -1,7 +1,5 @@
 {
-  "ignorePatterns": [
-    "nobuild/*"
-  ],
+  "ignorePatterns": ["nobuild/*"],
   "settings": {
     "react": { "version": "detect" },
     "import/resolver": {

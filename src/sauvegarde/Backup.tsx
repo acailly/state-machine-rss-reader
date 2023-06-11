@@ -2,10 +2,9 @@ import { Button, Container, Heading, Stack, Textarea, useToast } from '@chakra-u
 import { useLiveQuery } from 'dexie-react-hooks'
 import { useCallback, useRef } from 'react'
 
-
+import downloadJson from '../allMachines/downloadJson'
+import loadFeeds from '../allMachines/loadFeeds'
 import { db } from '../db'
-import downloadJson from '../services/downloadJson'
-import loadFeeds from '../services/loadFeeds'
 import { Feed } from '../types'
 
 import UploadJsonFileButton from './UploadJsonFileButton'

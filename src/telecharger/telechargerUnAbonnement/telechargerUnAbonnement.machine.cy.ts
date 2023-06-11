@@ -3,7 +3,7 @@ import { createModel } from '@xstate/test'
 import addTests from '../../stateMachineTools/addTests'
 import { Feed } from '../../types'
 
-import createMachineForAbonnement from './telechargerUnAbonnement.machine'
+import machine from './telechargerUnAbonnement.machine'
 import testEvents from './telechargerUnAbonnement.machine.cypress-events'
 import testStates from './telechargerUnAbonnement.machine.cypress-states'
 
@@ -13,7 +13,7 @@ const abonnement: Feed = {
   type: 'rss',
   key: 'rss:https://reactjs.org/feed.xml',
 }
-const testMachine = addTests(createMachineForAbonnement(abonnement), testStates)
+const testMachine = addTests(machine.withContext({abonnement}), testStates)
 const testModel = createModel(testMachine).withEvents(testEvents)
 
 describe('telecharger un abonnement', () => {

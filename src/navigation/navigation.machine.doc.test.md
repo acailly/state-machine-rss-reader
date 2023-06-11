@@ -5,15 +5,21 @@
 ```mermaid
 stateDiagram-v2  
 %% navigation  
-	[*] --> Nouveautés  
+	[*] --> Initialisation  
 	Nouveautés: Nouveautés  
 	Abonnements: Abonnements  
 	Sauvegarde: Sauvegarde  
 	Télecharger_les_nouveautés: Télecharger les nouveautés  
+	Initialisation: Initialisation  
+	Initialisation --> Télecharger_les_nouveautés:   
+	Initialisation --> Sauvegarde:   
+	Initialisation --> Abonnements:   
+	Initialisation --> Nouveautés:   
+	Initialisation --> Nouveautés:   
 
 ```
 
-Aller à l'état initial : [Nouveautés](#Nouveautés)  
+Aller à l'état initial : [Initialisation](#Initialisation)  
 ## <a id="Nouveautés"></a>Nouveautés
 
 ### Actions
@@ -30,3 +36,12 @@ Aller à l'état initial : [Nouveautés](#Nouveautés)
 
 ### Actions
 
+## <a id="Initialisation"></a>Initialisation
+
+### Actions
+
+-  [Télecharger les nouveautés](#Télecharger_les_nouveautés)  
+-  [Sauvegarde](#Sauvegarde)  
+-  [Abonnements](#Abonnements)  
+-  [Nouveautés](#Nouveautés)  
+-  [Nouveautés](#Nouveautés)  

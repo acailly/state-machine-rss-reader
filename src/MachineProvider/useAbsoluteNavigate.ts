@@ -3,7 +3,7 @@
 import { useCallback, useEffect, useRef } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-// it creates an "absolute navigate", ie. avoid doing .back() with it, that doesn't change at every location change
+// it creates an "absolute navigate", ie. it doesn't change at every location change, so avoid doing .back() with it 
 const useAbsoluteNavigate = () => {
   const navigate = useNavigate()
   const navigateRef = useRef({ navigate })

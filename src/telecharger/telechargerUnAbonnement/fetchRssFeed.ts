@@ -1,4 +1,4 @@
-import { NewsItem, RssFeed } from '../types'
+import { NewsItem, RssFeed } from '../../types'
 
 import corsProxyURL from './corsProxyURL'
 import httpClient from './httpClient'

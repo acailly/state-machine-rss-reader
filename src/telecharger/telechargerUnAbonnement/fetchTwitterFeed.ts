@@ -1,6 +1,6 @@
 import TwitterLite from 'twitter-lite'
 
-import { NewsItem, TwitterFeed } from '../types'
+import { NewsItem, TwitterFeed } from '../../types'
 
 import corsProxyURL from './corsProxyURL'
 import isBrowser from './isBrowser'

@@ -1,7 +1,7 @@
 import isAfter from 'date-fns/isAfter'
 
-import { db } from '../db'
-import { Feed } from '../types'
+import { db } from '../../db'
+import { Feed } from '../../types'
 
 const purgeFeed = async (feed: Feed) => {
   const feedMeta = await db.feedMetas.get({

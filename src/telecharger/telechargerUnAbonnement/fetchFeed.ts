@@ -1,4 +1,4 @@
-import { Feed, NewsItem } from '../types'
+import { Feed, NewsItem } from '../../types'
 
 import fetchRssFeed from './fetchRssFeed'
 import fetchTwitterFeed from './fetchTwitterFeed'

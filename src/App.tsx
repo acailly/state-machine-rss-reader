@@ -2,16 +2,15 @@ import { QueryClient, QueryClientProvider } from 'react-query'
 import { ReactQueryDevtools } from 'react-query/devtools'
 import { Outlet, Route, Routes } from 'react-router-dom'
 
-
 import FakeDataButton from './FakeDataButton'
 import Feeds from './abonnements/Feeds'
 import NewFeed from './abonnements/NewFeed'
 import NewFeedRSS from './abonnements/NewFeedRSS'
 import NewFeedTwitter from './abonnements/NewFeedTwitter'
+import baseUrl from './allMachines/baseUrl'
 import Header from './navigation/Header'
 import News from './nouveautes/News'
 import Backup from './sauvegarde/Backup'
-import baseUrl from './services/baseUrl'
 import FetchingFeedsStatus from './telecharger/FetchingFeedsStatus'
 
 const queryClient = new QueryClient()

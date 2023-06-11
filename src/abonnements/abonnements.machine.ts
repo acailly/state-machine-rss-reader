@@ -7,7 +7,7 @@ const machine =
   createMachine<Context, Event, Typestate>({
     context: {},
     predictableActionArguments: true,
-    initial: "Initialisation",
+    initial: 'Initialisation',
     states: {
       'Liste des abonnements': {
         description: 'Test description',
@@ -118,27 +118,29 @@ const machine =
       Initialisation: {
         always: [
           {
-            target: "Nouvel abonnement RSS",
+            target: 'Nouvel abonnement RSS',
             cond: {
               type: 'urlInclude',
-              url: '/feeds/new/rss'
-            }
+              url: '/feeds/new/rss',
+            },
           },
           {
-            target: "Nouvel abonnement Twitter",
+            target: 'Nouvel abonnement Twitter',
             cond: {
               type: 'urlInclude',
-              url: '/feeds/new/twitter'
-            }
+              url: '/feeds/new/twitter',
+            },
           },
           {
-          target: "Choix du nouvel abonnement",
-          cond: {
-            type: 'urlInclude',
-            url: '/feeds/new'
-          }
-        }, "Liste des abonnements"]
-      }
+            target: 'Choix du nouvel abonnement',
+            cond: {
+              type: 'urlInclude',
+              url: '/feeds/new',
+            },
+          },
+          'Liste des abonnements',
+        ],
+      },
     },
     id: 'abonnements',
   })

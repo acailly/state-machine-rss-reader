@@ -4,7 +4,7 @@ import machineToMarkdown from '../../stateMachineTools/machineToMarkdown'
 import writeMarkdownFile from '../../stateMachineTools/writeMarkdownFile'
 import { Feed } from '../../types'
 
-import createMachineForAbonnement from './telechargerUnAbonnement.machine'
+import machine from './telechargerUnAbonnement.machine'
 
 const abonnement: Feed = {
   title: 'Blog React',
@@ -15,7 +15,7 @@ const abonnement: Feed = {
 
 describe('telecharger un abonnement - doc', () => {
   it('should generate documentation', () => {
-    const markdown = machineToMarkdown(createMachineForAbonnement(abonnement))
+    const markdown = machineToMarkdown(machine.withContext({abonnement}))
     writeMarkdownFile(markdown, __filename)
   })
 })
