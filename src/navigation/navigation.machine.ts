@@ -91,7 +91,6 @@ const machine =
               url: '/news',
             },
           },
-          'Nouveautés',
         ],
       },
     },
